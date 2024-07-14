@@ -34,7 +34,6 @@ const ChatList = ({ onChatClick }) => {
                     
                     const truncatedMessage = lastMessage.message.length > 50 ? `${lastMessage.message.slice(0, 35)}...` : lastMessage.message;
                     const lastMessageTime = formatDate(lastMessage.created_at);
-
                     return { 
                         ...chat, 
                         lastMessage: truncatedMessage, 
@@ -72,7 +71,7 @@ const ChatList = ({ onChatClick }) => {
             {chats.map((chat, index) => (
                 <div key={chat.id} onClick={() => onChatClick(chat.id)}>
                     <div className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800">
-                        <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white font-bold">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white font-bold bggra">
                             {getInitials(chat.creator?.name)}
                         </div>
                         <div className="flex-1">
@@ -83,7 +82,7 @@ const ChatList = ({ onChatClick }) => {
                             <div className="flex justify-between">
                                 <p className="text-gray-500">{chat.lastMessage}</p>
                                 {chat.unreadCount > 0 && (
-                                    <span className="h-7 w-7 p-0.5 rounded-full bg-green-400 text-center">{chat.unreadCount}</span>
+                                    <span className="h-7 w-7 p-0.5 rounded-full bg-green-400 dark:bg-blue-600 text-center">{chat.unreadCount}</span>
                                 )}
                             </div>
                         </div>
@@ -97,17 +96,6 @@ const ChatList = ({ onChatClick }) => {
 
 export default ChatList;
 
-
-
-
-
-
-
-
-
-
-
-// // mobile
 // import React, { useEffect, useState } from 'react';
 // import { fetchAllChats, fetchChatMessages } from '../services/api';
 
@@ -178,7 +166,7 @@ export default ChatList;
 //     };
 
 //     return (
-//         <div className="p-4 lg:border-r lg:border-gray-200 lg:dark:border-gray-700">
+//         <div className="p-4 overflow-y-auto h-full">
 //             {chats.map((chat, index) => (
 //                 <div key={chat.id} onClick={() => onChatClick(chat.id)}>
 //                     <div className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800">
@@ -193,12 +181,12 @@ export default ChatList;
 //                             <div className="flex justify-between">
 //                                 <p className="text-gray-500">{chat.lastMessage}</p>
 //                                 {chat.unreadCount > 0 && (
-//                                     <span className="text-red-500">{chat.unreadCount}</span>
+//                                     <span className="h-7 w-7 p-0.5 rounded-full bg-green-400 text-center">{chat.unreadCount}</span>
 //                                 )}
 //                             </div>
 //                         </div>
 //                     </div>
-//                     {index < chats.length - 1 && <hr className="my-2 border-gray-300 dark:border-gray-700 mx-16" />} {/* Exclude hr for the last chat item */}
+//                     {index < chats.length - 1 && <hr className="my-2 border-gray-300 dark:border-gray-700 mx-16" />}
 //                 </div>
 //             ))}
 //         </div>
@@ -206,12 +194,4 @@ export default ChatList;
 // };
 
 // export default ChatList;
-
-
-
-
-
-
-
-
 
