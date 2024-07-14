@@ -19,8 +19,11 @@ const Header = ({ toggleSidebar, onSearch }) => {
             <section className='flex items-center p-2 sm:p-4 bg-slate-900 text-white cursor-pointer dark:bg-purple-200 dark:text-yellow-50'>
                 {!isSearching ? (
                     <>
-                        <RxHamburgerMenu onClick={toggleSidebar} />
-                        <p className="ml-2">Telegram</p>
+                    <section className='flex gap-6 items-center'>
+                    <RxHamburgerMenu onClick={toggleSidebar} />
+                    <p className="ml-2">Telegram</p>
+                    </section>
+
                         <FaMagnifyingGlass onClick={handleSearchToggle} className="ml-auto cursor-pointer" />
                     </>
                 ) : (
@@ -38,11 +41,11 @@ const Header = ({ toggleSidebar, onSearch }) => {
             </section>
             <section className='flex justify-around p-4 gap-8 text-center overflow-x-scroll scrollbar-hidden'>
           <p className={`cursor-pointer ${active === 'All' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("All")}>All</p>
-          <p className={`cursor-pointer ${active === 'Regards' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Regards")}>Regards</p>
+          <p className={`cursor-pointer ${active === 'Regulars' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Regulars")}>Regulars</p>
           <p className={`cursor-pointer ${active === 'Unread' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Unread")}>Unread</p>
-          <p className={`cursor-pointer ${active === 'All' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("All")}>All</p>
-          <p className={`cursor-pointer ${active === 'Regards' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Regards")}>Regards</p>
-          <p className={`cursor-pointer ${active === 'Unread' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Unread")}>Unread</p>
+          <p className={`cursor-pointer ${active === 'Personal' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Personal")}>Personal</p>
+          <p className={`cursor-pointer ${active === 'Archived' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Archived")}>Archived</p>
+          <p className={`cursor-pointer ${active === 'Group' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Group")}>Group</p>
         </section>
         </header>
     );
