@@ -1,12 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import ChatWindow from '../components/ChatWindow';
 
-const ChatPage = () => {
-    const { id } = useParams();
+const ChatPage = ({ chatId, onChatBack }) => {
     return (
-        <div className="chat-page">
-            <ChatWindow chatId={id} />
+        <div >
+            <ChatWindow chatId={chatId} onChatBack={onChatBack}/>
         </div>
     );
 };
