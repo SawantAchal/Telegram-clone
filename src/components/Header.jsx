@@ -36,7 +36,7 @@ const Header = ({ toggleSidebar, onSearch }) => {
                     </div>
                 )}
             </section>
-            <section className='flex justify-around p-4 gap-8 text-center overflow-x-scroll'>
+            <section className='flex justify-around p-4 gap-8 text-center overflow-x-scroll scrollbar-hidden'>
           <p className={`cursor-pointer ${active === 'All' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("All")}>All</p>
           <p className={`cursor-pointer ${active === 'Regards' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Regards")}>Regards</p>
           <p className={`cursor-pointer ${active === 'Unread' ? 'border-b-2 border-blue-700 text-blue-400' : ""}`} onClick={() => setActive("Unread")}>Unread</p>
