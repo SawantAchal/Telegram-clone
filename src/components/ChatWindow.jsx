@@ -136,22 +136,22 @@ const ChatWindow = ({ chatId, onChatBack }) => {
                 ))
             }
         </div>
-        <div className={`fixed bottom-0 md:left-[30%] left-0 right-0 p-4 ${darkMode ? "bg-gray-800" : "bg-gray-200"}  `}>
-            <div className="flex  md:flex-row items-center max-w-4xl mx-auto">
-                <div className='rounded border border-gray-400 dark:border-gray-600 flex items-center'>
-                    <MdOutlineEmojiEmotions/>
+        <div className={`fixed bottom-0 md:left-[30%] w-[70%] justify-between left-0 right-0 p-4 ${darkMode ? "bg-gray-800" : "bg-gray-200"}  `}>
+            <div className="flex  md:flex-row items-center max-w-4xl mx-auto gap-3">
+                <div className='rounded border border-gray-400 dark:border-gray-600 flex items-center w-full pl-2 pr-2'>
+                    <MdOutlineEmojiEmotions className='text-2xl'/>
                     <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="flex-grow p-2 border-none  outline-none bg-transparent" placeholder="Type a message..."/>
-                    <GrAttachment/>
+                    <GrAttachment className='text-2xl'/>
                 </div>
                 {
                     newMessage ? (
-                        <button onClick={handleSendMessage} className="ml-2 p-2 bg-blue-500 text-white rounded">
-                            <IoSend />
+                        <button onClick={handleSendMessage} className="h-12 w-12 rounded-full bg-gray-400 items-center text-center p-3 text-blue-500 ">
+                            <IoSend className='text-2xl'/>
                         </button>
                     ) : (
                         <div className='h-12 w-12 rounded-full bg-gray-400 items-center text-center p-3'>
-                        <LuMic className='text-2xl'/>
-                    </div>
+                            <LuMic className='text-2xl'/>
+                        </div>
                     )
                 }
             </div>
