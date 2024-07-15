@@ -70,7 +70,7 @@ const ChatList = ({ onChatClick ,toggleSidebar }) => {
     return (
         <div className="p-4 ">
             <div className='sm:flex gap-4 items-center hidden'>
-                <RxHamburgerMenu onClick={toggleSidebar} className='text-xl'/>
+                <RxHamburgerMenu onClick={toggleSidebar} className='text-xl text-white'/>
                 <input  type="text"  placeholder="Search in chats..."  className="bg-white text-gray-500 p-2 rounded md:w-full border border-purple-400 outline-none hidden md:block"  autoFocus onChange={(e) => onSearch(e.target.value)}/>
             </div>
             {
