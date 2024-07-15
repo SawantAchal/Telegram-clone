@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import MobilePage from './pages/MobilePage';
@@ -7,11 +7,12 @@ import { useTheme } from './contexts/ThemeContext';
 import ChatPage from './pages/ChatPage'
 
 const App = () => {
-  const [isSidebarVisible, setSidebarVisible] = React.useState(false);
-  const [selectedChatId, setSelectedChatId] = React.useState(null);
-  const sidebarRef = React.useRef(null);
+  const [isSidebarVisible, setSidebarVisible] = useState(false);
+  const [selectedChatId, setSelectedChatId] = useState(null);
+  const sidebarRef = useRef(null);
   const navigate = useNavigate();
   const { darkMode } = useTheme();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
@@ -23,7 +24,7 @@ const App = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isSidebarVisible) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
@@ -43,6 +44,10 @@ const App = () => {
   const handleChatBack = () => {
     setSelectedChatId(null);
     navigate('/');
+  };
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
   };
 
   return (

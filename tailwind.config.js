@@ -10,7 +10,15 @@ export default {
       screens: {
         'md': '768px',
       },
-
+      keyframes:{
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
+      animation:{
+        rotate: 'rotate 0.5s ease-in-out',
+      }
     },
   },
   plugins: [
