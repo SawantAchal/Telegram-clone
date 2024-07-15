@@ -75,7 +75,7 @@ const ChatList = ({ onChatClick ,toggleSidebar }) => {
             </div>
             {
                 chats.map((chat, index) => (
-                    <div key={chat.id} onClick={() => onChatClick(chat.id)} className='scrollbar-hidden'>
+                    <div key={chat.id} onClick={() => onChatClick(chat.id)} className='scrollbar-hidden mt-5'>
                         <div className= {`flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 scrollbar-hidden ${darkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-200'}`}>
                             <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white font-bold bggra">
                                 {getInitials(chat.creator?.name)}
