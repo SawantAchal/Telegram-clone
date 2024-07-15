@@ -20,7 +20,7 @@ const Sidebar = forwardRef(({ isVisible }, ref) => {
                 <section className='flex justify-between mt-2 items-center'>
                     <section>
                         <p>Achal Sawant</p>
-                        <p className={` ${darkMode ? text-gray-700 : text-blue-50 }text-sm`}>+91 2345678902</p>
+                        <p className={`text-sm ${darkMode ?' text-gray-700' : 'text-blue-50' }`}>+91 2345678902</p>
                     </section>
                     <section>
                         <IoIosArrowDown />
