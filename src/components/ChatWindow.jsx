@@ -141,9 +141,9 @@ const ChatWindow = ({ chatId, onChatBack }) => {
         <div className={`fixed bottom-0 lg:left-[30%] lg:w-[70%] md:w-full  justify-between left-0 right-0 p-4 ${darkMode ? "bg-gray-800" : "bg-gray-200"}  `}>
             <div className="flex  md:flex-row items-center max-w-4xl mx-auto gap-3">
                 <div className='rounded border border-gray-400 dark:border-gray-600 flex items-center w-full pl-2 pr-2'>
-                    <MdOutlineEmojiEmotions className='md:text-2xl text-lg'/>
-                    <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="flex-grow p-2 border-none  outline-none bg-transparent" placeholder="Type a message..."/>
-                    <GrAttachment className='md:text-2xl text-lg'/>
+                    <MdOutlineEmojiEmotions className='md:text-2xl text-lg text-black'/>
+                    <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="flex-grow p-2 border-none text-black outline-none bg-transparent" placeholder="Type a message..."/>
+                    <GrAttachment className='md:text-2xl text-lg text-black'/>
                 </div>
                 {
                     newMessage ? (
