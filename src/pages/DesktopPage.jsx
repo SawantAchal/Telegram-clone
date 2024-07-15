@@ -16,7 +16,7 @@ const DesktopPage = ({ toggleSidebar,}) => {
   };
   return (
     <div className="flex h-screen">
-      <div className={`w-[30%]  border-r  overflow-y-auto ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-700 border-gray-300'}`}>
+      <div className={`w-[30%]  border-r  overflow-y-auto ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'}`}>
         <ChatList onChatClick={handleChatClick} toggleSidebar={toggleSidebar}/>
         </div>
       <div className="w-[70%] flex items-center justify-center bg-gray-200 dark:bg-gray-800 p-4  bg-no-repeat bg-cover" style={{ backgroundImage: `${darkMode ? "url('/bgchatwindowdarkmode.png')" : "url('/bgchatwindow.png')"}`}}>

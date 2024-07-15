@@ -9,7 +9,7 @@ const Sidebar = forwardRef(({ isVisible }, ref) => {
     const { darkMode, toggleDarkMode } = useTheme();
 
     return (
-        <aside ref={ref} className={`fixed top-0 left-0 h-full ${darkMode ? 'bg-gray-800' : 'bg-white'} text-white transform ${isVisible ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`} style={{ width: '80%', zIndex: 50 }}>
+        <aside ref={ref} className={`fixed top-0 left-0 h-full ${darkMode ? 'bg-gray-800' : 'bg-white'} text-white transform ${isVisible ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out z-50 w-4/5 md:w-1/5`} >
             <section className={`p-4 pb-2  text-white ${darkMode ? 'bg-gray-700' : 'bg-blue-500'}`}>
                 <section className='flex justify-between'>
                     <img src={profile} alt='profile' className='h-20 w-20 rounded-full'/>

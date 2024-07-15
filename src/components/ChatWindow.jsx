@@ -7,6 +7,7 @@ import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { GrAttachment } from "react-icons/gr";
 import { LuMic } from "react-icons/lu";
 import { useTheme } from '../contexts/ThemeContext';
+import { useLocation } from 'react-router-dom';
 
 const ChatWindow = ({ chatId, onChatBack }) => {
     const [messages, setMessages] = useState([]);
@@ -16,6 +17,8 @@ const ChatWindow = ({ chatId, onChatBack }) => {
     const [currentDate, setCurrentDate] = useState('');
     const chatRef = useRef(null);
     const { darkMode } = useTheme();
+    const location = useLocation();
+    const username =location.state?.username;
 
     useEffect(() => {
     const loadMessages = async () => {
@@ -93,16 +96,15 @@ const ChatWindow = ({ chatId, onChatBack }) => {
 
    return (
     <div className="flex flex-col h-screen scrollbar-hidden">
-        <div className={`flex justify-between items-center p-4 w-full ${darkMode ? 'bg-gray-700' : 'bg-blue-500'} `}>
+        <div className={`flex justify-between items-center p-4 w-full bg-transparent`}>
             <div className='flex items-center gap-4'>
-                <button onClick={onChatBack} className="text-blue-500">
+                <button onClick={onChatBack} className="text-white">
                     <FaArrowLeft />
                 </button>
                 <div className="flex items-center gap-3">
                     <img src={profilePic} alt="User" className="h-10 w-10 rounded-full border border-gray-400" />
-                    {/* <p className="ml-2 font-bold text-white">{messages.length > 0 ? messages[0].creator?.name : 'Unknown'}</p> */}
                     <div>
-                        <p className=" font-bold text-gray-800">Username</p>
+                        <p className={`font-bold ${darkMode ? 'text-white' : 'text-black'}`}>{username || 'Unknown'}</p>
                         <p className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-300"}`}>last seen within a week</p>
                     </div>
                 </div>
@@ -112,7 +114,7 @@ const ChatWindow = ({ chatId, onChatBack }) => {
                 <IoEllipsisVertical className={` text-white  text-xl `} />
             </div>
         </div>
-        <div className={`relative flex-grow overflow-y-auto scrollbar-hidden p-4 pb-20 bg-no-repeat bg-cover" ref={chatRef}`} style={{ backgroundImage: `${darkMode ? "url('/bgchatwindowdarkmode.png')" : "url('/bgchatwindow.png')"}`}}>
+        <div className={`relative flex-grow overflow-y-auto scrollbar-hidden p-4 pb-20 bg-no-repeat bg-cover"`} ref={chatRef}  style={{ backgroundImage: `${darkMode ? "url('/bgchatwindowdarkmode.png')" : "url('/bgchatwindow.png')"}`}}>
             <div className={`fixed top-18 left-1/2 transform -translate-x-1/2 ${darkMode ? "bg-gray-700" : "bg-gray-200 "} px-4 py-1 rounded shadow z-10`} >
                 {currentDate}
             </div>
@@ -121,7 +123,7 @@ const ChatWindow = ({ chatId, onChatBack }) => {
                     <div key={message.id}>
                         {
                             index === 0 || (messages[index - 1].read && !message.read) ? (
-                                <div className={`text-center my-4 ${darkMode ? "text-white" : "text-gray-500 bg-gray-200 p-6"} `}>
+                                <div className='text-center'>
                                     Unread messages
                                 </div>
                             ) : null
@@ -136,20 +138,20 @@ const ChatWindow = ({ chatId, onChatBack }) => {
                 ))
             }
         </div>
-        <div className={`fixed bottom-0 md:left-[30%] w-[70%] justify-between left-0 right-0 p-4 ${darkMode ? "bg-gray-800" : "bg-gray-200"}  `}>
+        <div className={`fixed bottom-0 lg:left-[30%] lg:w-[70%] md:w-full  justify-between left-0 right-0 p-4 ${darkMode ? "bg-gray-800" : "bg-gray-200"}  `}>
             <div className="flex  md:flex-row items-center max-w-4xl mx-auto gap-3">
                 <div className='rounded border border-gray-400 dark:border-gray-600 flex items-center w-full pl-2 pr-2'>
-                    <MdOutlineEmojiEmotions className='text-2xl'/>
+                    <MdOutlineEmojiEmotions className='md:text-2xl text-lg'/>
                     <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="flex-grow p-2 border-none  outline-none bg-transparent" placeholder="Type a message..."/>
-                    <GrAttachment className='text-2xl'/>
+                    <GrAttachment className='md:text-2xl text-lg'/>
                 </div>
                 {
                     newMessage ? (
-                        <button onClick={handleSendMessage} className="h-12 w-12 rounded-full bg-gray-400 items-center text-center p-3 text-blue-500 ">
+                        <button onClick={handleSendMessage} className="h-9 w-9 rounded-full bg-gray-400 items-center text-center p-2 text-blue-500 ">
                             <IoSend className='text-2xl'/>
                         </button>
                     ) : (
-                        <div className='h-12 w-12 rounded-full bg-gray-400 items-center text-center p-3'>
+                        <div className='h-9 w-9 rounded-full bg-gray-400 items-center text-center p-2'>
                             <LuMic className='text-2xl'/>
                         </div>
                     )

@@ -69,19 +69,20 @@ const ChatList = ({ onChatClick ,toggleSidebar }) => {
 
     return (
         <div className="p-4 ">
-            <div className='sm:flex gap-4 items-center hidden'>
-                <RxHamburgerMenu onClick={toggleSidebar} className='text-xl text-white'/>
-                <input  type="text"  placeholder="Search in chats..."  className="bg-white text-gray-500 p-2 rounded md:w-full border border-purple-400 outline-none hidden md:block"  autoFocus onChange={(e) => onSearch(e.target.value)}/>
+            <div className='sm:flex gap-4 items-center hidden mb-2'>
+                <RxHamburgerMenu onClick={toggleSidebar} className={`text-xl ${darkMode ? 'text-white' : 'text-black'}`}/>
+                <input  type="text"  placeholder="Search in chats..."  className="bg-white text-gray-500 p-2 rounded md:w-full border border-gray-500 outline-none hidden md:block"  autoFocus onChange={(e) => onSearch(e.target.value)}/>
             </div>
+            <hr className='hidden md:block'/>
             {
                 chats.map((chat, index) => (
-                    <div key={chat.id} onClick={() => onChatClick(chat.id)} className='scrollbar-hidden mt-5'>
+                    <div key={chat.id} onClick={() => onChatClick(chat.id)} className='scrollbar-hidden mt-9'>
                         <div className= {`flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 scrollbar-hidden ${darkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-200'}`}>
                             <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white font-bold bggra">
                                 {getInitials(chat.creator?.name)}
                             </div>
                             <div className="flex-1">
-                                <p className="font-bold flex justify-between">
+                                <p className={`font-bold flex justify-between ${darkMode? 'text-white' :''}`}>
                                     {chat.creator?.name || 'Unknown'}
                                     <span className="text-gray-500">{chat.lastMessageTime}</span>
                                 </p>
@@ -89,7 +90,7 @@ const ChatList = ({ onChatClick ,toggleSidebar }) => {
                                     <p className="text-gray-500">{chat.lastMessage}</p>
                                     {
                                         chat.unreadCount > 0 && (
-                                            <span className="h-7 w-7 p-0.5 rounded-full bg-green-400 dark:bg-blue-600 text-center">{chat.unreadCount}</span>
+                                            <span className={`h-7 w-7 p-0.5 rounded-full ${darkMode ? 'bg-green-400' :'bg-blue-600'}   text-center`}>{chat.unreadCount}</span>
                                         )
                                     }
                                 </div>

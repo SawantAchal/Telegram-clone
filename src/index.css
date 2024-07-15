@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 
+*{
+  box-sizing: border-box;
+}
 /* Add this to your global styles */
 .scrollbar-hidden::-webkit-scrollbar {
     display: none;
